@@ -1,12 +1,20 @@
 ﻿using NUnit.Framework;
 
+public static class EarnCookieBuilder
+{
+    public static EarnCookie Create(CookieClicker cookieClicker, IOutputCounter outputCounter = default)
+    {
+        return new EarnCookie(cookieClicker, outputCounter ?? new MockOutputCounter());
+    }
+}
+
 public class EarnCookieTests
 {
     [Test]
     public void EarnCookies()
     {
-        var cookieClicker = new CookieClicker();
-        var sut = new EarnCookie(cookieClicker);
+        var cookieClicker = CookieClicker.CreateEmpty();
+        var sut = EarnCookieBuilder.Create(cookieClicker);
         sut.Execute();
         Assert.AreEqual(1, cookieClicker.Cookies);
     }
@@ -14,7 +22,7 @@ public class EarnCookieTests
     [Test]
     public void SignalToCookieCounter()
     {
-        var cookieClicker = new CookieClicker();
+        var cookieClicker = CookieClicker.CreateEmpty();
         var outputCounter = new MockOutputCounter();
         var sut = new EarnCookie(cookieClicker, outputCounter);
         sut.Execute();
@@ -37,11 +45,6 @@ public class EarnCookie
 {
     CookieClicker cookieClicker;
     private readonly IOutputCounter outputCounter;
-
-    public EarnCookie(CookieClicker cookieClicker)
-    {
-        this.cookieClicker = cookieClicker;
-    }
 
     public EarnCookie(CookieClicker cookieClicker, IOutputCounter outputCounter)
     {
