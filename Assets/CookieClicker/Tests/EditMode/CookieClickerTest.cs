@@ -11,7 +11,7 @@ public class CookieClickerTest
     public void ZeroCookiesOnStart()
     {
         CookieClicker sut = new CookieClicker();
-        Assert.AreEqual(0, sut.GetCookies());
+        Assert.AreEqual(0, sut.Cookies);
     }
 
     [Test]
@@ -19,7 +19,7 @@ public class CookieClickerTest
     {
         var sut = new CookieClicker();
         sut.EarnCookie();
-        Assert.AreEqual(1, sut.GetCookies());
+        Assert.AreEqual(1, sut.Cookies);
     }
 
     [Test]
@@ -29,19 +29,15 @@ public class CookieClickerTest
         sut.EarnCookie();
         sut.EarnCookie();
 
-        Assert.AreEqual(2, sut.GetCookies());
+        Assert.AreEqual(2, sut.Cookies);
     }
 }
 
 public class CookieClicker
 {
     private int cookies = 0;
+    public int Cookies => cookies;
 
-    
-    public int GetCookies()
-    {
-        return cookies;
-    }
 
     public void EarnCookie()
     {
