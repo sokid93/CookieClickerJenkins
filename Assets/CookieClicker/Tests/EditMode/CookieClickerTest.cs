@@ -13,6 +13,14 @@ public class CookieClickerTest
         CookieClicker sut = new CookieClicker();
         Assert.AreEqual(0, sut.GetCookies());
     }
+
+    [Test]
+    public void EarnCookie()
+    {
+        var sut = new CookieClicker();
+        sut.EarnCookie();
+        Assert.AreEqual(1, sut.GetCookies());
+    }
 }
 
 public class CookieClicker
@@ -23,5 +31,10 @@ public class CookieClicker
     public int GetCookies()
     {
         return cookies;
+    }
+
+    public void EarnCookie()
+    {
+        throw new System.NotImplementedException();
     }
 }
