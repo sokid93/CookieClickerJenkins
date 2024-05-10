@@ -26,18 +26,36 @@ public class EarnCookieTests
         var outputCounter = new MockOutputCounter();
         var sut = new EarnCookie(cookieClicker, outputCounter);
         sut.Execute();
-        Assert.IsTrue(outputCounter.updated);
+        Assert.AreEqual(1, outputCounter.DisplayedCookies);
+    }
+    
+    [Test]
+    public void Display2Cookies()
+    {
+        var cookieClicker = CookieClicker.CreateEmpty();
+        var outputCounter = new MockOutputCounter();
+        var sut = EarnCookieBuilder.Create(cookieClicker, outputCounter);
+        
+        sut.Execute();
+        sut.Execute();
+        
+        Assert.AreEqual(2, outputCounter.DisplayedCookies);
     }
 }
 
 public class MockOutputCounter : IOutputCounter
 {
-    public bool updated = false;
-    public void UpdateCounter() => updated = true;
+    public int DisplayedCookies { get; set; }
+
+    public void UpdateCounter()
+    {
+        DisplayedCookies = 1;
+    }
 }
 
 public interface IOutputCounter
 {
+    // TODO: Add parameter with the number of cookies
     void UpdateCounter();
 }
 
