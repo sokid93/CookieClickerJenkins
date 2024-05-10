@@ -8,8 +8,20 @@ public class CookieClickerTest
 {
     // A Test behaves as an ordinary method
     [Test]
-    public void CookieClickerTestSimplePasses()
+    public void ZeroCookiesOnStart()
     {
-        // Use the Assert class to test conditions
+        CookieClicker sut = new CookieClicker();
+        Assert.AreEqual(0, sut.GetCookies());
+    }
+}
+
+public class CookieClicker
+{
+    private int cookies = 0;
+
+    
+    public int GetCookies()
+    {
+        return cookies;
     }
 }
