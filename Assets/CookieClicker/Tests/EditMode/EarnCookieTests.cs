@@ -16,6 +16,7 @@ public class EarnCookieTests
         var cookieClicker = CookieClicker.CreateEmpty();
         var sut = EarnCookieBuilder.Create(cookieClicker);
         sut.Execute();
+        
         Assert.AreEqual(1, cookieClicker.Cookies);
     }
 
@@ -26,6 +27,7 @@ public class EarnCookieTests
         var outputCounter = new MockOutputCounter();
         var sut = new EarnCookie(cookieClicker, outputCounter);
         sut.Execute();
+        
         Assert.AreEqual(1, outputCounter.DisplayedCookies);
     }
     
@@ -56,6 +58,7 @@ public class MockOutputCounter : IOutputCounter
 public interface IOutputCounter
 {
     // TODO: Add parameter with the number of cookies
+    
     void UpdateCounter();
 }
 
