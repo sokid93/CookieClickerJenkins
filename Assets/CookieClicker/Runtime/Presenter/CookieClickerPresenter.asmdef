@@ -1,0 +1,16 @@
+{
+    "name": "CookieClickerPresenter",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8e399fb747b06e9409c366c2d8affdf1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
