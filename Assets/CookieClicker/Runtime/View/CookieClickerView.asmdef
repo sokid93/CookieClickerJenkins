@@ -1,3 +1,4 @@
 {
-	"name": "CookieClickerView"
+	"name": "CookieClickerView",
+	"references":[ "GUID:362239a51e510974ea80d3f47dce9e54" ]
 }
