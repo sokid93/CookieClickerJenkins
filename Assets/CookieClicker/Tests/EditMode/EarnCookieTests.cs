@@ -47,11 +47,11 @@ public class EarnCookieTests
 
 public class MockOutputCounter : IOutputCounter
 {
-    public int DisplayedCookies { get; set; }
+    public int DisplayedCookies { get; private set; }
 
     public void UpdateCounter()
     {
-        DisplayedCookies = 1;
+        DisplayedCookies += 1;
     }
 }
 
