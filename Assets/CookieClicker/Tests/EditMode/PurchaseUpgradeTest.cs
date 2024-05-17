@@ -12,9 +12,22 @@ public class PurchaseUpgradeTest
 
         sut.Execute();
 
-        Assert.AreEqual(cookieClicker.CookiesMultiplier, 2);
-        Assert.AreEqual(cookieClicker.Cookies, 0);
+        Assert.AreEqual(2, cookieClicker.CookiesMultiplier);
+        Assert.AreEqual(0, cookieClicker.Cookies);
     }
 }
 
-public class PurchaseUpgrade { }
+public class PurchaseUpgrade
+{
+    private readonly CookieClicker cookieClicker;
+
+    public PurchaseUpgrade(CookieClicker cookieClicker)
+    {
+        this.cookieClicker = cookieClicker;
+    }
+
+    public void Execute()
+    {
+        // TODO
+    }
+}
