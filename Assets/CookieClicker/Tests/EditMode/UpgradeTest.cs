@@ -55,11 +55,10 @@ public class CookiesX2Upgrade
 
     public void ApplyUpgrade()
     {
-        if (cookieClicker.Cookies < cost)
-            throw new Exception();
         
-        cookieClicker.Cookies -= cost;
+        cookieClicker.SpendCookies(cost);
         cookieClicker.CookiesMultiplier *= 2;
+        
 
     }
 }
