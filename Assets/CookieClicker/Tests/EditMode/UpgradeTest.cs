@@ -3,7 +3,7 @@ using NUnit.Framework;
 public class UpgradeTest
 {
     [Test]
-    public void ApplyUpgrade()
+    public void ApplyCookiesX2Upgrade()
     {
         var cookieClicker = new CookieClicker();
         var sut = new CookiesX2Upgrade(cookieClicker);
@@ -13,6 +13,20 @@ public class UpgradeTest
         
         Assert.AreEqual(2, cookieClicker.Cookies);
     }
+    
+    [Test]
+    public void ApplyCookiesX2UpgradeTwice()
+    {
+        var cookieClicker = new CookieClicker();
+        var sut = new CookiesX2Upgrade(cookieClicker);
+        
+        sut.ApplyUpgrade();
+        sut.ApplyUpgrade();
+        cookieClicker.EarnCookie();
+        
+        Assert.AreEqual(4, cookieClicker.Cookies);
+    }
+    
 }
 
 public class CookiesX2Upgrade
@@ -26,6 +40,6 @@ public class CookiesX2Upgrade
 
     public void ApplyUpgrade()
     {
-        cookieClicker.CookiesMultiplier = 2;
+        cookieClicker.CookiesMultiplier *= 2;
     }
 }
