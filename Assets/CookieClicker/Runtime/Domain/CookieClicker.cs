@@ -7,10 +7,11 @@ public class CookieClicker
 
     private int cookies = 0;
     public int Cookies => cookies;
+    public float CookiesMultiplier { get; set; } = 1;
 
 
     public void EarnCookie()
     {
-        cookies++;
+        cookies += (int)CookiesMultiplier;
     }
 }
