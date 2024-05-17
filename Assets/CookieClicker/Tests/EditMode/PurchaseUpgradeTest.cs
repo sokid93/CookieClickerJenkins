@@ -1,4 +1,5 @@
-﻿namespace DefaultNamespace;
+﻿using System;
+using NUnit.Framework;
 
 public class PurchaseUpgradeTest
 {
@@ -10,8 +11,10 @@ public class PurchaseUpgradeTest
         var sut = new PurchaseUpgrade(cookieClicker);
 
         sut.Execute();
-        
-        Assert.AreEqual(cookieClicker.CookiesMultiplier,2);
+
+        Assert.AreEqual(cookieClicker.CookiesMultiplier, 2);
         Assert.AreEqual(cookieClicker.Cookies, 0);
     }
 }
+
+public class PurchaseUpgrade { }
