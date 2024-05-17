@@ -55,10 +55,7 @@ public class CookiesX2Upgrade
 
     public void ApplyUpgrade()
     {
-        
         cookieClicker.SpendCookies(cost);
         cookieClicker.CookiesMultiplier *= 2;
-        
-
     }
 }
