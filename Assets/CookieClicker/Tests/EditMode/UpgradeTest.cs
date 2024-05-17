@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 
 public class UpgradeTest
@@ -26,20 +27,39 @@ public class UpgradeTest
         
         Assert.AreEqual(4, cookieClicker.Cookies);
     }
+
+    [Test]
+    public void SpendCookieToBuyUpgrade()
+    {
+        var cookieClicker = new CookieClicker();
+        var sut = new CookiesX2Upgrade(cookieClicker, 1);
+        
+        cookieClicker.EarnCookie();
+        sut.ApplyUpgrade();
+        
+        Assert.AreEqual(0, cookieClicker.Cookies);
+    }
     
 }
 
 public class CookiesX2Upgrade
 {
     private readonly CookieClicker cookieClicker;
+    private int cost;
 
-    public CookiesX2Upgrade(CookieClicker cookieClicker)
+    public CookiesX2Upgrade(CookieClicker cookieClicker, int cost=0)
     {
         this.cookieClicker = cookieClicker;
+        this.cost = cost;
     }
 
     public void ApplyUpgrade()
     {
+        if (cookieClicker.Cookies < cost)
+            throw new Exception();
+        
+        cookieClicker.Cookies -= cost;
         cookieClicker.CookiesMultiplier *= 2;
+
     }
 }
