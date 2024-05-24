@@ -22,5 +22,9 @@ public class CookieClicker
     {
         cookies += (int)CookiesMultiplier;
     }
-    
+
+    public bool CanSpendCookies(int quantity)
+    {
+        return quantity <= cookies;
+    }
 }
