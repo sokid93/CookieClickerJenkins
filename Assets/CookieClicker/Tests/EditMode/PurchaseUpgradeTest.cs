@@ -8,8 +8,9 @@ public class PurchaseUpgradeTest
     public void PurchaseUpgrade()
     {
         var cookieClicker = new CookieClicker();
+        var outputCounter = new MockOutputCounter();
         cookieClicker.EarnCookie();
-        var sut = new PurchaseUpgrade(cookieClicker);
+        var sut = new PurchaseUpgrade(cookieClicker, outputCounter);
 
         sut.Execute();
 
@@ -24,7 +25,7 @@ public class PurchaseUpgradeTest
         var outputCounter = new MockOutputCounter();
         cookieClicker.EarnCookie();
         cookieClicker.EarnCookie();
-        var sut = new PurchaseUpgrade(cookieClicker);
+        var sut = new PurchaseUpgrade(cookieClicker, outputCounter);
         
         sut.Execute();
         
