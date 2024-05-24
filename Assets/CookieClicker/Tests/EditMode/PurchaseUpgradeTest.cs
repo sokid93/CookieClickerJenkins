@@ -16,19 +16,18 @@ public class PurchaseUpgradeTest
         Assert.AreEqual(2, cookieClicker.CookiesMultiplier);
         Assert.AreEqual(0, cookieClicker.Cookies);
     }
-}
 
-public class PurchaseUpgrade
-{
-    private readonly CookieClicker cookieClicker;
-
-    public PurchaseUpgrade(CookieClicker cookieClicker)
+    [Test]
+    public void DisplayRemainingCookies()
     {
-        this.cookieClicker = cookieClicker;
-    }
-
-    public void Execute()
-    {
-        new CookiesX2Upgrade(cookieClicker,1).ApplyUpgrade();
+        var cookieClicker = new CookieClicker();
+        var outputCounter = new MockOutputCounter();
+        cookieClicker.EarnCookie();
+        cookieClicker.EarnCookie();
+        var sut = new PurchaseUpgrade(cookieClicker);
+        
+        sut.Execute();
+        
+        Assert.AreEqual(1, outputCounter.DisplayedCookies);
     }
 }
