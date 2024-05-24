@@ -10,11 +10,14 @@ public class CookiesButtonAndCounter : MonoBehaviour, IOutputCounter
 {
     private EarnCookie presenter;
     private CookieClicker model;
-    
+    public void Configure(CookieClicker model, EarnCookie presenter)
+    {
+        this.model = model;
+        this.presenter = presenter;
+    }
+
     private void Start()
     {
-        model = new CookieClicker();
-        presenter = new EarnCookie(model, this);
         GetComponent<UnityEngine.UI.Button>().onClick.AddListener(PressButton);
     }
 
