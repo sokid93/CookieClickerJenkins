@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using NUnit.Framework;
 
 public class PurchaseUpgradeTest
@@ -28,6 +29,6 @@ public class PurchaseUpgrade
 
     public void Execute()
     {
-        // TODO
+        new CookiesX2Upgrade(cookieClicker,1).ApplyUpgrade();
     }
 }
