@@ -33,7 +33,7 @@ public class PurchaseUpgradeTest
     }
 
     [Test]
-    public void asfaisdfag()
+    public void CannotPurchaseUpgrade()
     {
         var cookieClicker = new CookieClicker();
         var outputCounter = new MockOutputCounter();
@@ -42,5 +42,6 @@ public class PurchaseUpgradeTest
         sut.Execute();
         
         Assert.AreEqual(0, outputCounter.DisplayedCookies);
+        Assert.AreEqual(1, cookieClicker.CookiesMultiplier);
     }
 }
