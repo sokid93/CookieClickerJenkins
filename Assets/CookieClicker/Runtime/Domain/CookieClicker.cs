@@ -22,4 +22,5 @@ public class CookieClicker
     {
         cookies += (int)CookiesMultiplier;
     }
+    
 }

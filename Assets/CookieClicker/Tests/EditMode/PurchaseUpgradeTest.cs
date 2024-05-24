@@ -26,9 +26,9 @@ public class PurchaseUpgradeTest
         cookieClicker.EarnCookie();
         cookieClicker.EarnCookie();
         var sut = new PurchaseUpgrade(cookieClicker, outputCounter);
-        
+
         sut.Execute();
-        
+
         Assert.AreEqual(1, outputCounter.DisplayedCookies);
     }
 }
