@@ -12,5 +12,6 @@ public class DependencyResolver : MonoBehaviour
         var earnCookiePresenter = new EarnCookie(cookieClicker, cookiesButtonAndCounter);
         cookiesButtonAndCounter.Configure(cookieClicker, earnCookiePresenter);
         purchaseUpgradeButton.Configure(purchaseUpgradePresenter);
+        Debug.Log("dependencias resueltas");
     }
 }

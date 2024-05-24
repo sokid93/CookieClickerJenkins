@@ -9,4 +9,14 @@ public class PurchaseUpgradeButton : MonoBehaviour
     {
         this.presenter = presenter;
     }
+
+    private void Start()
+    {
+        GetComponent<UnityEngine.UI.Button>().onClick.AddListener(PressButton);
+    }
+
+    private void PressButton()
+    {
+        this.presenter.Execute();
+    }
 }
