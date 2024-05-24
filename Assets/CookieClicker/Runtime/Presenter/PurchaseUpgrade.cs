@@ -12,7 +12,10 @@ public class PurchaseUpgrade
 
     public void Execute()
     {
-        new CookiesX2Upgrade(cookieClicker,1).ApplyUpgrade();
+        var upgradeCost = 1;
+        if (!cookieClicker.CanSpendCookies(upgradeCost)) return;
+        
+        new CookiesX2Upgrade(cookieClicker,upgradeCost).ApplyUpgrade();
         outputCounter.UpdateCounter(cookieClicker.Cookies);
     }
 }

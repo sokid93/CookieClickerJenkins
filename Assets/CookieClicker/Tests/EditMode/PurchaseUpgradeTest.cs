@@ -31,4 +31,16 @@ public class PurchaseUpgradeTest
 
         Assert.AreEqual(1, outputCounter.DisplayedCookies);
     }
+
+    [Test]
+    public void asfaisdfag()
+    {
+        var cookieClicker = new CookieClicker();
+        var outputCounter = new MockOutputCounter();
+        var sut = new PurchaseUpgrade(cookieClicker, outputCounter);
+        
+        sut.Execute();
+        
+        Assert.AreEqual(0, outputCounter.DisplayedCookies);
+    }
 }
