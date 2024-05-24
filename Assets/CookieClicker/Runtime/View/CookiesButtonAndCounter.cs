@@ -9,10 +9,8 @@ using UnityEngine;
 public class CookiesButtonAndCounter : MonoBehaviour, IOutputCounter
 {
     private EarnCookie presenter;
-    private CookieClicker model;
-    public void Configure(CookieClicker model, EarnCookie presenter)
+    public void Configure(EarnCookie presenter)
     {
-        this.model = model;
         this.presenter = presenter;
     }
 

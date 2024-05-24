@@ -19,4 +19,10 @@ public class PurchaseUpgradeButton : MonoBehaviour
     {
         this.presenter.Execute();
     }
+
+    private void Update()
+    {
+        // TODO: define queryCookies
+        GetComponent<UnityEngine.UI.Button>().enabled = queryCookies.Execute();
+    }
 }
