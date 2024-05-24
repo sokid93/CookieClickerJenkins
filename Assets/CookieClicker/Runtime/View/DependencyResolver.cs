@@ -10,8 +10,9 @@ public class DependencyResolver : MonoBehaviour
         var purchaseUpgradeButton = FindObjectOfType<PurchaseUpgradeButton>();
         var purchaseUpgradePresenter = new PurchaseUpgrade(cookieClicker, cookiesButtonAndCounter);
         var earnCookiePresenter = new EarnCookie(cookieClicker, cookiesButtonAndCounter);
+        var queryCookiesPresenter = new QueryCookies();
         cookiesButtonAndCounter.Configure(cookieClicker, earnCookiePresenter);
-        purchaseUpgradeButton.Configure(purchaseUpgradePresenter);
+        purchaseUpgradeButton.Configure(purchaseUpgradePresenter, queryCookiesPresenter);
         Debug.Log("dependencias resueltas");
     }
 }

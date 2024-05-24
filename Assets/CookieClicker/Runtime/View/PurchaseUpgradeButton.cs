@@ -4,10 +4,12 @@ public class PurchaseUpgradeButton : MonoBehaviour
 
 {
     private PurchaseUpgrade presenter;
+    private QueryCookies queryCookies;
 
-    public void Configure(PurchaseUpgrade presenter)
+    public void Configure(PurchaseUpgrade presenter, QueryCookies queryCookies)
     {
         this.presenter = presenter;
+        this.queryCookies = queryCookies;
     }
 
     private void Start()

@@ -2,7 +2,7 @@
 public class QueryCookies
 {
     CookieClicker cookieClicker;
-    public void QueryCookies(Cookieclicker cookieclicker) {
+    public QueryCookies(CookieClicker cookieClicker) {
         this.cookieClicker = cookieClicker;
     }
 
