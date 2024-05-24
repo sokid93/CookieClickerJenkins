@@ -37,4 +37,15 @@ public class CookieClickerTest
         
         Assert.AreEqual(false, sut.CanSpendCookies(1));
     }
+
+    [Test]
+    public void CanSpendCookies()
+    {
+        var sut = CookieClicker.CreateEmpty();
+        sut.EarnCookie();
+        sut.EarnCookie();
+        
+        
+        Assert.AreEqual(true, sut.CanSpendCookies(1));
+    }
 }
