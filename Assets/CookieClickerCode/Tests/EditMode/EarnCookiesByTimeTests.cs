@@ -89,12 +89,16 @@ namespace CookieClickerCode.Tests.EditMode
 
         public void Execute(DateTime dateTime)
         {
-            var delta = dateTime - lastKnownTime;
             if (cookieClicker.ClicksPerSecond <= 0) return;
-            if (!(delta.TotalSeconds >= 1/(cookieClicker.ClicksPerSecond))) return;
+            if (!MustEarnCookie(dateTime)) return;
             
             earnCookiePresenter.Execute();
             lastKnownTime = dateTime;
+        }
+
+        private bool MustEarnCookie(DateTime dateTime)
+        {
+            return ((dateTime - lastKnownTime).TotalSeconds >= 1/(cookieClicker.ClicksPerSecond));
         }
     }
 }
