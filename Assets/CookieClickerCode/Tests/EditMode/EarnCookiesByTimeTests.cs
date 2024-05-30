@@ -35,6 +35,22 @@ namespace CookieClickerCode.Tests.EditMode
             
             Assert.AreEqual(1, cookieClicker.Cookies);
         }
+    
+        [Test]
+        public void AccumulateTime()
+        {
+            var cookieClicker = CookieClicker.CreateEmpty();
+            var outputCounter = new MockOutputCounter();
+            var earnCookiePresenter = new EarnCookie(cookieClicker, outputCounter);
+            var sut = new EarnCookiesByTime(earnCookiePresenter);
+            cookieClicker.ClicksPerSecond = 1;
+                
+            sut.Execute(new DateTime());
+            sut.Execute(new DateTime() + TimeSpan.FromSeconds(0.5));
+            sut.Execute(new DateTime() + TimeSpan.FromSeconds(0.5));
+                
+            Assert.AreEqual(1, cookieClicker.Cookies);
+        }
     }
 
     public class EarnCookiesByTime
