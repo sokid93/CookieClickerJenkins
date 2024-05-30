@@ -7,14 +7,18 @@ namespace CookieClickerCode.Tests.EditMode
 {
     public class EarnCookiesByTimeTests
     {
+        private static void CreateSUT(out EarnCookiesByTime sut, out CookieClicker cookieClicker)
+        {
+            cookieClicker = CookieClicker.CreateEmpty();
+            var outputCounter = new MockOutputCounter();
+            var earnCookiePresenter = new EarnCookie(cookieClicker, outputCounter);
+            sut = new EarnCookiesByTime(earnCookiePresenter);
+        }
         
         [Test]
         public void NotEarnsCookies()
         {
-            var cookieClicker = CookieClicker.CreateEmpty();
-            var outputCounter = new MockOutputCounter();
-            var earnCookiePresenter = new EarnCookie(cookieClicker, outputCounter);
-            var sut = new EarnCookiesByTime(earnCookiePresenter);
+            CreateSUT(out var sut, out var cookieClicker);
 
             sut.Execute(new DateTime());
 
@@ -24,10 +28,7 @@ namespace CookieClickerCode.Tests.EditMode
         [Test]
         public void EarnACookieInASecond()
         {
-            var cookieClicker = CookieClicker.CreateEmpty();
-            var outputCounter = new MockOutputCounter();
-            var earnCookiePresenter = new EarnCookie(cookieClicker, outputCounter);
-            var sut = new EarnCookiesByTime(earnCookiePresenter);
+            CreateSUT(out var sut, out var cookieClicker);
             cookieClicker.ClicksPerSecond = 1;
             
             sut.Execute(new DateTime());
@@ -35,14 +36,11 @@ namespace CookieClickerCode.Tests.EditMode
             
             Assert.AreEqual(1, cookieClicker.Cookies);
         }
-    
+
         [Test]
         public void AccumulateTime()
         {
-            var cookieClicker = CookieClicker.CreateEmpty();
-            var outputCounter = new MockOutputCounter();
-            var earnCookiePresenter = new EarnCookie(cookieClicker, outputCounter);
-            var sut = new EarnCookiesByTime(earnCookiePresenter);
+            CreateSUT(out var sut, out var cookieClicker);
             cookieClicker.ClicksPerSecond = 1;
                 
             sut.Execute(new DateTime());
