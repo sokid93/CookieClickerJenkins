@@ -12,7 +12,7 @@ namespace CookieClickerCode.Tests.EditMode
             cookieClicker = CookieClicker.CreateEmpty();
             var outputCounter = new MockOutputCounter();
             var earnCookiePresenter = new EarnCookie(cookieClicker, outputCounter);
-            sut = new EarnCookiesByTime(earnCookiePresenter);
+            sut = new EarnCookiesByTime(earnCookiePresenter, cookieClicker);
         }
         
         [Test]
@@ -55,28 +55,43 @@ namespace CookieClickerCode.Tests.EditMode
         {
             CreateSUT(out var sut, out var cookieClicker);
             
+            cookieClicker.ClicksPerSecond = 1;
             sut.Execute(new DateTime());
             sut.Execute(new DateTime() + TimeSpan.FromSeconds(0.5));
             sut.Execute(new DateTime() + TimeSpan.FromSeconds(1));
             
             Assert.AreEqual(1, cookieClicker.Cookies);
         }
+        [Test]
+        public void TwoClicksPerSecond()
+        {
+            CreateSUT(out var sut, out var cookieClicker);
+
+            cookieClicker.ClicksPerSecond = 2;
+            sut.Execute(new DateTime());
+            sut.Execute(new DateTime() + TimeSpan.FromSeconds(1));
+            
+            Assert.AreEqual(2, cookieClicker.Cookies);
+        }
     }
 
     public class EarnCookiesByTime
     {
         private readonly EarnCookie earnCookiePresenter;
+        private readonly CookieClicker cookieClicker;
         private DateTime lastKnownTime;
 
-        public EarnCookiesByTime(EarnCookie earnCookiePresenter)
+        public EarnCookiesByTime(EarnCookie earnCookiePresenter, CookieClicker cookieClicker)
         {
             this.earnCookiePresenter = earnCookiePresenter;
+            this.cookieClicker = cookieClicker;
         }
 
         public void Execute(DateTime dateTime)
         {
             var delta = dateTime - lastKnownTime;
-            if (!(delta.TotalSeconds >= 1)) return;
+            if (cookieClicker.ClicksPerSecond <= 0) return;
+            if (!(delta.TotalSeconds >= 1/(cookieClicker.ClicksPerSecond))) return;
             
             earnCookiePresenter.Execute();
             lastKnownTime = dateTime;
