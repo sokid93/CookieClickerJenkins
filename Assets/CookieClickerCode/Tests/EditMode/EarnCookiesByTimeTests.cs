@@ -49,6 +49,18 @@ namespace CookieClickerCode.Tests.EditMode
                 
             Assert.AreEqual(1, cookieClicker.Cookies);
         }
+
+        [Test]
+        public void dfagasdf()
+        {
+            CreateSUT(out var sut, out var cookieClicker);
+            
+            sut.Execute(new DateTime());
+            sut.Execute(new DateTime() + TimeSpan.FromSeconds(0.5));
+            sut.Execute(new DateTime() + TimeSpan.FromSeconds(1));
+            
+            Assert.AreEqual(1, cookieClicker.Cookies);
+        }
     }
 
     public class EarnCookiesByTime
@@ -64,10 +76,9 @@ namespace CookieClickerCode.Tests.EditMode
         public void Execute(DateTime dateTime)
         {
             var delta = dateTime - lastKnownTime;
-            if (delta.TotalSeconds >= 1)
-            {
-                this.earnCookiePresenter.Execute();
-            }
+            if (!(delta.TotalSeconds >= 1)) return;
+            
+            earnCookiePresenter.Execute();
             lastKnownTime = dateTime;
         }
     }
