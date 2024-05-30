@@ -46,8 +46,8 @@ namespace CookieClickerCode.Tests.EditMode
             cookieClicker.ClicksPerSecond = 1;
                 
             sut.Execute(new DateTime());
-            sut.Execute(new DateTime() + TimeSpan.FromSeconds(0.5));
-            sut.Execute(new DateTime() + TimeSpan.FromSeconds(0.5));
+            sut.Execute(new DateTime() + TimeSpan.FromSeconds(1));
+            sut.Execute(new DateTime() + TimeSpan.FromSeconds(1.5));
                 
             Assert.AreEqual(1, cookieClicker.Cookies);
         }
@@ -70,6 +70,7 @@ namespace CookieClickerCode.Tests.EditMode
             {
                 this.earnCookiePresenter.Execute();
             }
+            lastKnownTime = dateTime;
         }
     }
 }
