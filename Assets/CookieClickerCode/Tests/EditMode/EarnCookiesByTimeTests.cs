@@ -40,6 +40,7 @@ namespace CookieClickerCode.Tests.EditMode
     public class EarnCookiesByTime
     {
         private readonly EarnCookie earnCookiePresenter;
+        private DateTime lastKnownTime;
 
         public EarnCookiesByTime(EarnCookie earnCookiePresenter)
         {
@@ -48,7 +49,11 @@ namespace CookieClickerCode.Tests.EditMode
 
         public void Execute(DateTime dateTime)
         {
-            
+            var delta = dateTime - lastKnownTime;
+            if (delta.TotalSeconds >= 1)
+            {
+                this.earnCookiePresenter.Execute();
+            }
         }
     }
 }
