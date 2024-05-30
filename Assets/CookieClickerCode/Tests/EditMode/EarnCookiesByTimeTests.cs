@@ -89,7 +89,6 @@ namespace CookieClickerCode.Tests.EditMode
 
         public void Execute(DateTime dateTime)
         {
-            if (cookieClicker.ClicksPerSecond <= 0) return;
             if (!MustEarnCookie(dateTime)) return;
             
             earnCookiePresenter.Execute();
@@ -98,7 +97,7 @@ namespace CookieClickerCode.Tests.EditMode
 
         private bool MustEarnCookie(DateTime dateTime)
         {
-            return ((dateTime - lastKnownTime).TotalSeconds >= 1/(cookieClicker.ClicksPerSecond));
+            return cookieClicker.ClicksPerSecond > 0 && ((dateTime - lastKnownTime).TotalSeconds >= 1/(cookieClicker.ClicksPerSecond)) ;
         }
     }
 }
