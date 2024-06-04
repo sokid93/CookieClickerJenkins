@@ -6,12 +6,12 @@ namespace CookieClickerCode.Runtime.Presenter
     public class EarnCookiesByTime
     {
         private readonly EarnCookie earnCookiePresenter;
-        private readonly AutoclickUpgrade timer;
+        private readonly Autoclicker timer;
 
         public EarnCookiesByTime(EarnCookie earnCookiePresenter, CookieClicker cookieClicker)
         {
             this.earnCookiePresenter = earnCookiePresenter;
-            timer = new AutoclickUpgrade(cookieClicker);
+            timer = new Autoclicker(cookieClicker);
         }
 
         public void Execute(DateTime dateTime)

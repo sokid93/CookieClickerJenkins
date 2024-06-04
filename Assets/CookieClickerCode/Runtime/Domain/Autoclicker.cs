@@ -1,15 +1,14 @@
 ﻿using System;
-using CookieClickerCode.Runtime.Domain;
 
-namespace CookieClickerCode.Runtime.Presenter
+namespace CookieClickerCode.Runtime.Domain
 {
-    public class AutoclickUpgrade
+    public class Autoclicker
     {
         private DateTime lastKnownTime;
         private readonly CookieClicker cookieClicker;
 
 
-        public AutoclickUpgrade(CookieClicker cookieClicker)
+        public Autoclicker(CookieClicker cookieClicker)
         {
             this.cookieClicker = cookieClicker;
         }

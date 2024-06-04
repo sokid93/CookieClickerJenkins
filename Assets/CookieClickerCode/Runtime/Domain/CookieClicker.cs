@@ -33,7 +33,12 @@ namespace CookieClickerCode.Runtime.Domain
 
         public void UpgradeAutoclickerRate()
         {
-            
+            ClicksPerSecond++;
+        }
+        
+        public void UpgradeMultiplier()
+        {
+            CookiesMultiplier *= 2;
         }
     }
 }
