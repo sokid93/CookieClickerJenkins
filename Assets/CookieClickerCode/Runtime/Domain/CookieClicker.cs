@@ -12,7 +12,7 @@ namespace CookieClickerCode.Runtime.Domain
         private int cookies = 0;
         public int Cookies => cookies;
         public float CookiesMultiplier { get; set; } = 1;
-        public int ClicksPerSecond { get; set; }
+        public int ClicksPerSecond { get; set; } = 1;
 
         public void SpendCookies(int cost)
         {

@@ -6,26 +6,18 @@ namespace CookieClickerCode.Runtime.Presenter
     public class EarnCookiesByTime
     {
         private readonly EarnCookie earnCookiePresenter;
-        private readonly CookieClicker cookieClicker;
-        private DateTime lastKnownTime;
+        private readonly Timer timer;
 
         public EarnCookiesByTime(EarnCookie earnCookiePresenter, CookieClicker cookieClicker)
         {
             this.earnCookiePresenter = earnCookiePresenter;
-            this.cookieClicker = cookieClicker;
+            timer = new Timer(cookieClicker);
         }
 
         public void Execute(DateTime dateTime)
         {
-            if (!MustEarnCookie(dateTime)) return;
-            
+            if (!timer.MustEarnCookie(dateTime)) return;
             earnCookiePresenter.Execute();
-            lastKnownTime = dateTime;
-        }
-
-        private bool MustEarnCookie(DateTime dateTime)
-        {
-            return cookieClicker.ClicksPerSecond > 0 && ((dateTime - lastKnownTime).TotalSeconds >= 1/(cookieClicker.ClicksPerSecond)) ;
         }
     }
 }
