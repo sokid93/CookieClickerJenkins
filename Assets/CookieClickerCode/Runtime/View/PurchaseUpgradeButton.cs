@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace CookieClickerCode.Runtime.View
 {
-    public class PurchaseUpgradeButton : MonoBehaviour
+    public class PurchaseCookiesX2UpgradeButton : MonoBehaviour
 
     {
-        private PurchaseUpgrade presenter;
+        private PurchaseCookiesX2Upgrade presenter;
         private QueryCookies queryCookies;
 
-        public void Configure(PurchaseUpgrade presenter, QueryCookies queryCookies)
+        public void Configure(PurchaseCookiesX2Upgrade presenter, QueryCookies queryCookies)
         {
             this.presenter = presenter;
             this.queryCookies = queryCookies;

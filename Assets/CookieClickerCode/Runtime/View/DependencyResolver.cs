@@ -10,14 +10,14 @@ namespace CookieClickerCode.Runtime.View
         {
             CookieClicker cookieClicker = CookieClicker.CreateEmpty();
             var cookiesButtonAndCounter = FindObjectOfType<CookiesButtonAndCounter>();
-            var purchaseUpgradeButton = FindObjectOfType<PurchaseUpgradeButton>();
+            var PurchaseCookiesX2UpgradeButton = FindObjectOfType<PurchaseCookiesX2UpgradeButton>();
             var cookiesByTimeTimer = FindObjectOfType<CookiesByTimeTimer>();
-            var purchaseUpgradePresenter = new PurchaseUpgrade(cookieClicker, cookiesButtonAndCounter);
+            var PurchaseCookiesX2UpgradePresenter = new PurchaseCookiesX2Upgrade(cookieClicker, cookiesButtonAndCounter);
             var earnCookiePresenter = new EarnCookie(cookieClicker, cookiesButtonAndCounter);
             var queryCookiesPresenter = new QueryCookies(cookieClicker);
             var earnCookiesByTime = new EarnCookiesByTime(earnCookiePresenter, cookieClicker);
             cookiesButtonAndCounter.Configure(earnCookiePresenter);
-            purchaseUpgradeButton.Configure(purchaseUpgradePresenter, queryCookiesPresenter);
+            PurchaseCookiesX2UpgradeButton.Configure(PurchaseCookiesX2UpgradePresenter, queryCookiesPresenter);
             cookiesByTimeTimer.Configure(earnCookiesByTime);
         }
     }

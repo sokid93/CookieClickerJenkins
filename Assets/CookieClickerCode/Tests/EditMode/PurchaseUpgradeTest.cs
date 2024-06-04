@@ -4,15 +4,15 @@ using NUnit.Framework;
 
 namespace CookieClickerCode.Tests.EditMode
 {
-    public class PurchaseUpgradeTest
+    public class PurchaseCookiesX2UpgradeTest
     {
         [Test]
-        public void PurchaseUpgrade()
+        public void PurchaseCookiesX2Upgrade()
         {
             var cookieClicker = new CookieClicker();
             var outputCounter = new MockOutputCounter();
             cookieClicker.EarnCookie();
-            var sut = new PurchaseUpgrade(cookieClicker, outputCounter);
+            var sut = new PurchaseCookiesX2Upgrade(cookieClicker, outputCounter);
 
             sut.Execute();
 
@@ -27,7 +27,7 @@ namespace CookieClickerCode.Tests.EditMode
             var outputCounter = new MockOutputCounter();
             cookieClicker.EarnCookie();
             cookieClicker.EarnCookie();
-            var sut = new PurchaseUpgrade(cookieClicker, outputCounter);
+            var sut = new PurchaseCookiesX2Upgrade(cookieClicker, outputCounter);
 
             sut.Execute();
 
@@ -35,11 +35,11 @@ namespace CookieClickerCode.Tests.EditMode
         }
 
         [Test]
-        public void CannotPurchaseUpgrade()
+        public void CannotPurchaseCookiesX2Upgrade()
         {
             var cookieClicker = new CookieClicker();
             var outputCounter = new MockOutputCounter();
-            var sut = new PurchaseUpgrade(cookieClicker, outputCounter);
+            var sut = new PurchaseCookiesX2Upgrade(cookieClicker, outputCounter);
         
             sut.Execute();
         
