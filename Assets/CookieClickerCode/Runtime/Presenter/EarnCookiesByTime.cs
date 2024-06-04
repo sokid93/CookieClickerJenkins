@@ -6,17 +6,17 @@ namespace CookieClickerCode.Runtime.Presenter
     public class EarnCookiesByTime
     {
         private readonly EarnCookie earnCookiePresenter;
-        private readonly Timer timer;
+        private readonly AutoclickUpgrade timer;
 
         public EarnCookiesByTime(EarnCookie earnCookiePresenter, CookieClicker cookieClicker)
         {
             this.earnCookiePresenter = earnCookiePresenter;
-            timer = new Timer(cookieClicker);
+            timer = new AutoclickUpgrade(cookieClicker);
         }
 
         public void Execute(DateTime dateTime)
         {
-            if (!timer.MustEarnCookie(dateTime)) return;
+            if (!timer.MustAutoclick(dateTime)) return;
             earnCookiePresenter.Execute();
             timer.AccumulateTime(dateTime);
         }
