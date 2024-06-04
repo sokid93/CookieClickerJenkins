@@ -18,6 +18,7 @@ namespace CookieClickerCode.Runtime.Presenter
         {
             if (!timer.MustEarnCookie(dateTime)) return;
             earnCookiePresenter.Execute();
+            timer.AccumulateTime(dateTime);
         }
     }
 }

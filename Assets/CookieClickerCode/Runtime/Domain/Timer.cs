@@ -18,5 +18,10 @@ namespace CookieClickerCode.Runtime.Presenter
         {
             return cookieClicker.ClicksPerSecond > 0 && ((dateTime - lastKnownTime).TotalSeconds >= 1/(cookieClicker.ClicksPerSecond)) ;
         }
+
+        public void AccumulateTime(DateTime dateTime)
+        {
+            lastKnownTime = dateTime;
+        }
     }
 }
