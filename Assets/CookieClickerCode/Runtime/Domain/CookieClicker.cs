@@ -30,5 +30,10 @@ namespace CookieClickerCode.Runtime.Domain
         {
             return quantity <= cookies;
         }
+
+        public void UpgradeAutoclickerRate()
+        {
+            
+        }
     }
 }
