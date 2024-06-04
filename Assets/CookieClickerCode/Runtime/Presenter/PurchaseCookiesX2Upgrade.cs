@@ -19,7 +19,8 @@ namespace CookieClickerCode.Runtime.Presenter
             var upgradeCost = 1;
             if (!cookieClicker.CanSpendCookies(upgradeCost)) return;
         
-            new CookiesX2Upgrade(cookieClicker,upgradeCost).ApplyUpgrade();
+            cookieClicker.SpendCookies(upgradeCost);
+            cookieClicker.UpgradeMultiplier();
             outputCounter.UpdateCounter(cookieClicker.Cookies);
         }
     }
