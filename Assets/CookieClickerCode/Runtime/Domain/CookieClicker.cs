@@ -9,10 +9,10 @@ namespace CookieClickerCode.Runtime.Domain
             return new CookieClicker();
         }
 
-        private int cookies = 0;
+        private int cookies;
         public int Cookies => cookies;
         public float CookiesMultiplier { get; set; } = 1;
-        public int ClicksPerSecond { get; set; } = 1;
+        public int ClicksPerSecond { get; set; }
 
         public void SpendCookies(int cost)
         {
