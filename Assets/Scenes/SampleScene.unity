@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 541837247}
   - component: {fileID: 541837246}
   - component: {fileID: 541837245}
-  - component: {fileID: 541837244}
+  - component: {fileID: 541837248}
   m_Layer: 5
   m_Name: PurchaseAutoclicker
   m_TagString: Untagged
@@ -457,18 +457,6 @@ RectTransform:
   m_AnchoredPosition: {x: -153.6, y: -242.4}
   m_SizeDelta: {x: 208.94, y: 65.1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &541837244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541837242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6df1e2df9124db9a3ee21fb3d82d891, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &541837245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,6 +539,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 541837242}
   m_CullTransparentMesh: 1
+--- !u!114 &541837248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541837242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fc79837eae4d80b4418f0ba2a23cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &558223733
 GameObject:
   m_ObjectHideFlags: 0

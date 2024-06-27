@@ -41,4 +41,4 @@ namespace CookieClickerCode.Runtime.Domain
             CookiesMultiplier *= 2;
         }
     }
-}
+} 
