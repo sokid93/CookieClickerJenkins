@@ -10,15 +10,35 @@ using UnityEngine.UI;
 
 public class ViewTest
 {
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
     [UnityTest]
     public IEnumerator ClickingOneTimeGivesOneCookie()
     {
         // Cargar la escena
         yield return SceneManager.LoadSceneAsync(0);
         yield return null;
-        Object.FindObjectOfType<CookiesButtonAndCounter>().GetComponent<Button>().onClick.Invoke();
+        EarnCookie();
         Assert.AreEqual("1", Object.FindObjectOfType<CookiesButtonAndCounter>().GetComponentInChildren<TextMeshProUGUI>().text);
+    }
+
+    [UnityTest]
+    public IEnumerator TestAutoclickerAfterSomeSeconds()
+    {
+
+        // Cargar la escena
+        yield return SceneManager.LoadSceneAsync(0);
+        yield return null;
+
+        EarnCookie();
+
+        Object.FindObjectOfType<PurchaseAutoclickerUpgradeButton>().GetComponent<Button>().onClick.Invoke();
+        yield return new WaitForSeconds(5.1f);
+        Assert.AreEqual("6", Object.FindObjectOfType<CookiesButtonAndCounter>().GetComponentInChildren<TextMeshProUGUI>().text);
+
+        Time.timeScale = 1;
+    }
+
+    private static void EarnCookie()
+    {
+        Object.FindObjectOfType<CookiesButtonAndCounter>().GetComponent<Button>().onClick.Invoke();
     }
 }
