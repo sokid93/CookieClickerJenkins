@@ -74,5 +74,20 @@ namespace CookieClickerCode.Tests.EditMode
             
             Assert.AreEqual(2, cookieClicker.Cookies);
         }
+
+        [Test]
+        public void dfasdfa()
+        {
+            CreateSUT(out var sut, out var cookieClicker);
+
+            cookieClicker.ClicksPerSecond = 0;
+            sut.Execute(new DateTime());
+            sut.Execute(new DateTime() + TimeSpan.FromSeconds(10));
+            
+            cookieClicker.ClicksPerSecond = 1;
+            sut.Execute(new DateTime() + TimeSpan.FromSeconds(10.1));
+            
+            Assert.AreEqual(0, cookieClicker.Cookies);
+        }
     }
 }

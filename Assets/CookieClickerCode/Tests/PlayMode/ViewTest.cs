@@ -32,7 +32,7 @@ public class ViewTest
 
         Object.FindObjectOfType<PurchaseAutoclickerUpgradeButton>().GetComponent<Button>().onClick.Invoke();
         yield return new WaitForSeconds(5.1f);
-        Assert.AreEqual("6", Object.FindObjectOfType<CookiesButtonAndCounter>().GetComponentInChildren<TextMeshProUGUI>().text);
+        Assert.AreEqual("5", Object.FindObjectOfType<CookiesButtonAndCounter>().GetComponentInChildren<TextMeshProUGUI>().text);
 
         Time.timeScale = 1;
     }
