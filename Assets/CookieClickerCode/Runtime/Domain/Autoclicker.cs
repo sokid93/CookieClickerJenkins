@@ -15,7 +15,8 @@ namespace CookieClickerCode.Runtime.Domain
 
         public bool MustAutoclick(DateTime dateTime)
         {
-            return cookieClicker.ClicksPerSecond > 0 && ((dateTime - lastKnownTime).TotalSeconds >= 1/(cookieClicker.ClicksPerSecond)) ;
+            return cookieClicker.ClicksPerSecond > 0 && 
+                   ((dateTime - lastKnownTime).TotalSeconds >= 1f/(cookieClicker.ClicksPerSecond)) ;
         }
 
         public void AccumulateTime(DateTime dateTime)
