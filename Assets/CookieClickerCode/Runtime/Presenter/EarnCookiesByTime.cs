@@ -16,6 +16,7 @@ namespace CookieClickerCode.Runtime.Presenter
 
         public void Execute(DateTime dateTime)
         {
+            if (!timer.UpgradeBought()) timer.AccumulateTime(dateTime);
             if (!timer.MustAutoclick(dateTime)) return;
             earnCookiePresenter.Execute();
             timer.AccumulateTime(dateTime);
