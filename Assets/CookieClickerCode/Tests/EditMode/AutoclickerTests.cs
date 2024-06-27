@@ -8,7 +8,7 @@ namespace CookieClickerCode.Tests.EditMode
     public class AutoclickerTests
     {
         [Test]
-        public void asdfasdf() {
+        public void MustNotAutoclick() {
             var cookieClicker = CookieClicker.CreateEmpty();
             var sut = new Autoclicker(cookieClicker);        
             cookieClicker.ClicksPerSecond = 2;
