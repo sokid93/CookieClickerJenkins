@@ -15,7 +15,7 @@ namespace CookieClickerCode.Runtime.View
             var PurchaseCookiesX2UpgradePresenter = new PurchaseCookiesX2Upgrade(cookieClicker, cookiesButtonAndCounter);
             var earnCookiePresenter = new EarnCookie(cookieClicker, cookiesButtonAndCounter);
             var queryCookiesPresenter = new QueryCookies(cookieClicker);
-            var earnCookiesByTime = new EarnCookiesByTime(earnCookiePresenter, cookieClicker);
+            var earnCookiesByTime = new EarnCookiesByTime(earnCookiePresenter, new Autoclicker(cookieClicker));
             cookiesButtonAndCounter.Configure(earnCookiePresenter);
             PurchaseCookiesX2UpgradeButton.Configure(PurchaseCookiesX2UpgradePresenter, queryCookiesPresenter);
             cookiesByTimeTimer.Configure(earnCookiesByTime);

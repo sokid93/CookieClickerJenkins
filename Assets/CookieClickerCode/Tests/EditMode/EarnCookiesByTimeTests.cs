@@ -12,7 +12,7 @@ namespace CookieClickerCode.Tests.EditMode
             cookieClicker = CookieClicker.CreateEmpty();
             var outputCounter = new MockOutputCounter();
             var earnCookiePresenter = new EarnCookie(cookieClicker, outputCounter);
-            sut = new EarnCookiesByTime(earnCookiePresenter, cookieClicker);
+            sut = new EarnCookiesByTime(earnCookiePresenter, new Autoclicker(cookieClicker));
         }
         
         [Test]

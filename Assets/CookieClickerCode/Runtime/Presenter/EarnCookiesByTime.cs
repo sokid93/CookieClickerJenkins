@@ -8,10 +8,10 @@ namespace CookieClickerCode.Runtime.Presenter
         private readonly EarnCookie earnCookiePresenter;
         private readonly Autoclicker timer;
 
-        public EarnCookiesByTime(EarnCookie earnCookiePresenter, CookieClicker cookieClicker)
+        public EarnCookiesByTime(EarnCookie earnCookiePresenter, Autoclicker timer)
         {
             this.earnCookiePresenter = earnCookiePresenter;
-            timer = new Autoclicker(cookieClicker);
+            this.timer = timer;
         }
 
         public void Execute(DateTime dateTime)
