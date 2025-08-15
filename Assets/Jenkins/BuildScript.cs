@@ -10,8 +10,7 @@ public static class BuildScript
         PlayerSettings.bundleVersion = "1.0.0";
         PlayerSettings.productName = "CookieClicker";
         
-        string projectPath = Path.GetFullPath(Path.Combine(Application.dataPath, ".."));
-        string buildPath = Path.Combine(projectPath, "Build", "CookieClicker.exe");
+        string buildPath = Path.Combine(Directory.GetCurrentDirectory(), "Build", $"CookieClicker.exe");
         Directory.CreateDirectory(Path.GetDirectoryName(buildPath));
         
         string[] scenes = GetScenes();
