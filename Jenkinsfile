@@ -26,7 +26,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat """
-                    "${UNITY_PATH}" -executeMethod BuildScript.Build -projectPath "%WORKSPACE%" -quit -batchmode
+                    "${UNITY_PATH}" -executeMethod BuildScript.Build -projectPath "%WORKSPACE%" -quit -batchmode -logFile "%WORKSPACE%\\CI\\unity.log"
                 """
                 archiveArtifacts artifacts: 'Build/**/*', fingerprint: true
             }
