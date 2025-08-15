@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        UNITY_PATH = "C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\\Unity.exe" // CAMBIAD ESTO
+        UNITY_PATH = "C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.9f1\\Editor\\Unity.exe" // CAMBIAD ESTO
         REPO_URL = "https://github.com/sokid93/CookieClickerJenkins.git"
     }
     
