@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        UNITY_PATH = "C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.9f1\\Editor\\Unity.exe" // CAMBIAD ESTO
+        UNITY_PATH = "C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.9f1\\Editor\\Unity.exe"
         REPO_URL = "https://github.com/sokid93/CookieClickerJenkins.git"
     }
     
@@ -41,10 +41,10 @@ pipeline {
     }
     post {
         failure {
-            discordSend description: "Something failed", footer: "Footer", link: env.BUILD_URL, result: currentBuild.currentResult, title: "[Fran]", webhookURL: "https://discord.com/api/webhooks/1406578895809155113/sG90X913cAPnqE00h_8B2n_jmD52pp9Z6oo6pmLkozhYS-RQwm3dzsjoO5XXd7iK0Tsm"
+            discordSend description: "Something failed", footer: "Go to Jenkins pipeline", link: http://localhost:8080/job/Cookie%20Clicker%20Jenkins/, result: currentBuild.currentResult, title: "[Fran]", webhookURL: "https://discord.com/api/webhooks/1406578895809155113/sG90X913cAPnqE00h_8B2n_jmD52pp9Z6oo6pmLkozhYS-RQwm3dzsjoO5XXd7iK0Tsm"
         }
         success {
-            discordSend description: "Commit Stage ha ido bien", footer: "Haz click en el link para iniciar el despliegue en itch.io", link: "http://localhost:9090/job/PublishTest/build?delay=0sec", result: currentBuild.currentResult, title: "[Fran]", webhookURL: "https://discord.com/api/webhooks/1406578895809155113/sG90X913cAPnqE00h_8B2n_jmD52pp9Z6oo6pmLkozhYS-RQwm3dzsjoO5XXd7iK0Tsm"
+            discordSend description: "Commit Stage ha ido bien", footer: "Go to Jenkins pipeline", link: http://localhost:8080/job/Cookie%20Clicker%20Jenkins/, result: currentBuild.currentResult, title: "[Fran]", webhookURL: "https://discord.com/api/webhooks/1406578895809155113/sG90X913cAPnqE00h_8B2n_jmD52pp9Z6oo6pmLkozhYS-RQwm3dzsjoO5XXd7iK0Tsm"
         }
     }	
 }
