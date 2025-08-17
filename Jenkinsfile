@@ -30,5 +30,13 @@ pipeline {
                 archiveArtifacts artifacts: 'Build/**/*', fingerprint: true
             }
         }
+
+	stage('Deploy') {
+		steps {
+			bat"""
+				butler push "${pwd()}/Build" sokid93/test-jenkins:windows
+			"""
+		}
+	}
     }
 }
