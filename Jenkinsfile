@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+		discordSend description: "Comienzo pipeline", footer: "Footer", link: env.BUILD_URL, result: currentBuild.currentResult, title: "[Fran]", webhookURL: "https://discord.com/api/webhooks/1403692153439391754/jQaX79xZrL0QqQ4PlwgmUwclwU4Fpriv1yxOowDFKiFPI8wmjoVsjeULtlC7QKFknd9a"
                 bat "git pull ${REPO_URL}"
             }
         }
@@ -37,6 +38,6 @@ pipeline {
 				butler push "${pwd()}/Build" sokid93/test-jenkins:windows
 			"""
 		}
-	}
+	}	
     }
 }
