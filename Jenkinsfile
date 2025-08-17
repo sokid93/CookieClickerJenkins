@@ -40,4 +40,12 @@ pipeline {
 		}
 	}	
     }
+    post {
+        failure {
+            discordSend description: "Something failed", footer: "Aquí footer", link: env.BUILD_URL, result: currentBuild.currentResult, title: env.JOB_NAME, webhookURL: "https://discord.com/api/webhooks/1403692153439391754/jQaX79xZrL0QqQ4PlwgmUwclwU4Fpriv1yxOowDFKiFPI8wmjoVsjeULtlC7QKFknd9a"
+        }
+        success {
+            discordSend description: "Commit Stage ha ido bien"
+        }
+    }	
 }
