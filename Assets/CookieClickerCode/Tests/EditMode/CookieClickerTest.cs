@@ -10,7 +10,7 @@ namespace CookieClickerCode.Tests.EditMode
         public void ZeroCookiesOnStart()
         {
             CookieClicker sut = CookieClicker.CreateEmpty();
-            Assert.AreEqual(1, sut.Cookies);
+            Assert.AreEqual(0, sut.Cookies);
         }
 
         [Test]
