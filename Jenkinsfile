@@ -41,10 +41,10 @@ pipeline {
     }
     post {
         failure {
-            discordSend description: "Something failed", footer: "Aquí footer", link: env.BUILD_URL, result: currentBuild.currentResult, title: env.JOB_NAME, webhookURL: "https://discord.com/api/webhooks/1403692153439391754/jQaX79xZrL0QqQ4PlwgmUwclwU4Fpriv1yxOowDFKiFPI8wmjoVsjeULtlC7QKFknd9a"
+            discordSend description: "Something failed", footer: "Footer", link: env.BUILD_URL, result: currentBuild.currentResult, title: "[Fran]", webhookURL: "https://discord.com/api/webhooks/1406578895809155113/sG90X913cAPnqE00h_8B2n_jmD52pp9Z6oo6pmLkozhYS-RQwm3dzsjoO5XXd7iK0Tsm"
         }
         success {
-            discordSend description: "Commit Stage ha ido bien", footer: "Haz click en el link para iniciar el despliegue en itch.io", link: "http://localhost:9090/job/PublishTest/build?delay=0sec", result: currentBuild.currentResult, title: "Publicar en Itch.io", webhookURL: "https://discord.com/api/webhooks/1403692153439391754/jQaX79xZrL0QqQ4PlwgmUwclwU4Fpriv1yxOowDFKiFPI8wmjoVsjeULtlC7QKFknd9a"
+            discordSend description: "Commit Stage ha ido bien", footer: "Haz click en el link para iniciar el despliegue en itch.io", link: "http://localhost:9090/job/PublishTest/build?delay=0sec", result: currentBuild.currentResult, title: "[Fran]", webhookURL: "https://discord.com/api/webhooks/1406578895809155113/sG90X913cAPnqE00h_8B2n_jmD52pp9Z6oo6pmLkozhYS-RQwm3dzsjoO5XXd7iK0Tsm"
         }
     }	
 }
